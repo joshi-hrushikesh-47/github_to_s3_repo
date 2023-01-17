@@ -10,7 +10,7 @@ on:
 
 env:
   BUCKET_NAME : "my-github-bucket"
-  AWS_REGION : "global"
+  AWS_REGION : "us-east-2"
   GITHUB_REF: "main"
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::160142254471:role/github_s3_role
-        aws-region: Global
+        aws-region: us-east-2
 
     - name: Copy files to the test website with the AWS CLI
       run: |
