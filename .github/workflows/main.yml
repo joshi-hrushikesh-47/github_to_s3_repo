@@ -6,8 +6,7 @@ on:
     branches:
       - main
     paths:
-      - 'github_to_s3_repo/**'
-      - 'snowflake_db/**'
+      - 'github_to_s3_repo/snowflake_db/**'
 
 env:
   BUCKET_NAME : "my-github-bucket"
