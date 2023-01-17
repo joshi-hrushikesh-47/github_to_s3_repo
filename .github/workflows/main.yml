@@ -35,3 +35,33 @@ jobs:
     - name: Copy files to the test website with the AWS CLI
       run: |
         aws s3 sync . s3://my-github-bucket
+  
+  deploy-snowflake-changes-job:
+    runs-on: ubuntu-latest
+    environment: test_env
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Python 3.8.x
+        uses: actions/setup-python@v2.2.1
+        with:
+          python-version: 3.8.x
+
+      - name: Run schemachange
+        env:
+          SF_ACCOUNT: mr22578.ap-south-1
+          SF_USERNAME: hrushikesh47blz
+          SF_ROLE: SYSADMIN
+          SF_WAREHOUSE: COMPUTE_WH
+          SF_DATABASE: SNOWFLAKE
+          SNOWFLAKE_PASSWORD: Snowflake@12345!
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          python --version
+          echo "Step 1: Installing schemachange"
+          pip install schemachange
+          
+          echo "Step 2: Running schemachange"
+          schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table --vars '{"sf_database":"${{ secrets.SF_DATABASE }}"}'
