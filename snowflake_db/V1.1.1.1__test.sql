@@ -1,0 +1,3 @@
+create or replace TABLE SNOWFLAKE.ALERT.TEST (
+	ID NUMBER(38,0) NOT NULL
+);
