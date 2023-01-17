@@ -1,4 +1,4 @@
-name: snowflake-devops-dev-deployment
+name: github_to_s3_test_deploy
 
 # Controls when the action will run. 
 on:
@@ -8,8 +8,10 @@ on:
     paths:
       - 'snowflake_db/**'
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+env:
+  BUCKET_NAME : "my-github-bucket"
+  AWS_REGION : "global"
+  GITHUB_REF: "main"
 
 jobs:
   deploy:
