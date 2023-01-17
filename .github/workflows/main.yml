@@ -53,9 +53,9 @@ jobs:
         env:
           SF_ACCOUNT: mr22578.ap-south-1
           SF_USERNAME: hrushikesh47blz
-          SF_ROLE: SYSADMIN
+          SF_ROLE: ACCOUNTADMIN
           SF_WAREHOUSE: COMPUTE_WH
-          SF_DATABASE: SNOWFLAKE
+          SF_DATABASE: TEST_DB
           SNOWFLAKE_PASSWORD: Snowflake@12345!
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
@@ -64,4 +64,4 @@ jobs:
           pip install schemachange
           
           echo "Step 2: Running schemachange"
-          schemachange -f $GITHUB_WORKSPACE/snowflake_db -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table --vars '{"sf_database":"SNOWFLAKE"}'
+          schemachange -f $GITHUB_WORKSPACE/snowflake_db -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table --vars '{"sf_database":"TEST_DB"}'
