@@ -35,14 +35,8 @@ jobs:
           SF_DATABASE: ${{ secrets.SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
         run: |
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"          
           python --version
-          
-          echo "${{ vars.CODE_REPO_DB_INDIA }}"
-          echo "${{ vars.RAW_DB_INDIA }}"
-          echo "${{ vars.STG_DB_INDIA }}"
-          echo "${{ vars.CURATED_DB_INDIA }}"
           
           echo "Step 1: Replacing CODE_REPO Database names"
           find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/CODE_REPO_DB_INDIA/${{ vars.CODE_REPO_DB_INDIA }}/g' {} +
