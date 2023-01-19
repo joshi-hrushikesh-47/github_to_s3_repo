@@ -38,10 +38,10 @@ jobs:
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
           
-          echo ${{ env.CODE_REPO_DB_INDIA }}
-          echo ${{ env.RAW_DB_INDIA }}
-          echo ${{ env.STG_DB_INDIA }}
-          echo ${{ env.CURATED_DB_INDIA }}
+          echo "${{ env.CODE_REPO_DB_INDIA }}"
+          echo "${{ env.RAW_DB_INDIA }}"
+          echo "${{ env.STG_DB_INDIA }}"
+          echo "${{ env.CURATED_DB_INDIA }}"
           
           echo "Step 1: Replacing CODE_REPO Database names"
           find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/CODE_REPO_DB_INDIA/${{ env.CODE_REPO_DB_INDIA }}/g' {} +
