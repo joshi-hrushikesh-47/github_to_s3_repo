@@ -10,7 +10,7 @@ on:
       - 'snowflake_db/**'
 
 env:
-  GITHUB_REF: "main"
+  GITHUB_REF: "develop"
 
 jobs:
   deploy-snowflake-changes-job:
