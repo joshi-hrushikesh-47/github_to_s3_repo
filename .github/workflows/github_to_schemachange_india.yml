@@ -39,16 +39,16 @@ jobs:
           python --version
           
           echo "Step 1: Replacing CODE_REPO Database names"
-          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/CODE_REPO_DB_INDIA/${{ vars.CODE_REPO_DB_INDIA }}/g' {} +
+          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/CODE_REPO_DB/${{ vars.CODE_REPO_DB_INDIA }}/g' {} +
           
           echo "Step 2: Replacing RAW Database names"
-          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/RAW_DB_INDIA/${{ vars.RAW_DB_INDIA }}/g' {} +
+          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/RAW_DB/${{ vars.RAW_DB_INDIA }}/g' {} +
           
           echo "Step 3: Replacing STG Database names"
-          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/STG_DB_INDIA/${{ vars.STG_DB_INDIA }}/g' {} +
+          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/STG_DB/${{ vars.STG_DB_INDIA }}/g' {} +
           
           echo "Step 4: Replacing CURATED Database names"
-          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/CURATED_DB_INDIA/${{ vars.CURATED_DB_INDIA }}/g' {} +
+          find $GITHUB_WORKSPACE -name '*.sql' -exec sed -i 's/CURATED_DB/${{ vars.CURATED_DB_INDIA }}/g' {} +
           
           echo "Step 5: Installing schemachange"
           pip install schemachange
