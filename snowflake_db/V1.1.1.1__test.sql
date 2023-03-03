@@ -1,3 +1,0 @@
-create or replace TABLE TEST_DB.TEST_SCHEMA.TEST_TABLE (
-	ID NUMBER(38,0) NOT NULL
-);
