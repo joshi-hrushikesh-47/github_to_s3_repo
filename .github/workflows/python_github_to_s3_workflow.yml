@@ -30,4 +30,4 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::160142254471:role/github_s3_role
         aws-region: us-east-2
-    - run: zip -r ./python_reports/dest_zip_files/daily_metrics_report.zip  ./python_reports/src_script_files/daily_metrics_report/scripts/ | aws s3 sync . s3://${{ vars.AWS_S3_BUCKET }}  --delete --size-only
+    - run: zip -r ./python_reports/dest_zip_files/daily_metrics_report.zip  ./python_reports/src_script_files/daily_metrics_report/scripts/ | aws s3 sync . s3://$BUCKET_NAME  --delete --size-only
