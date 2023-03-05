@@ -4,7 +4,7 @@ name: github_to_s3_test_deploy
 on:
   push:
     branches:
-      - main
+      - develop
     paths:
       - 'github_to_s3_repo/**'
       - 'snowflake_db/**'
@@ -12,7 +12,7 @@ on:
 env:
   BUCKET_NAME : "my-github-bucket"
   AWS_REGION : "us-east-2"
-  GITHUB_REF: "main"
+  GITHUB_REF: "develop"
 
 jobs:
   deploy:
