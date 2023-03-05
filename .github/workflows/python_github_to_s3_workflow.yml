@@ -1,0 +1,36 @@
+name: python_github_to_s3_workflow
+
+# Controls when the action will run. 
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'python_reports/**'
+
+env:
+  BUCKET_NAME : "my-github-bucket"
+  AWS_REGION : "us-east-2"
+  GITHUB_REF: "develop"
+
+jobs:
+  deploy:
+    name: Upload to Amazon S3
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::160142254471:role/github_s3_role
+        aws-region: us-east-2
+
+    - name: Copy files to the test website with the AWS CLI
+      run: |
+        aws s3 sync . s3://my-github-bucket
