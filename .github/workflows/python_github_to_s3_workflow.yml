@@ -4,14 +4,14 @@ name: python_github_to_s3_workflow
 on:
   push:
     branches:
-      - develop
+      - main
     paths:
       - 'python_reports/**'
 
 env:
   BUCKET_NAME : "my-github-bucket"
   AWS_REGION : "us-east-2"
-  GITHUB_REF: "develop"
+  GITHUB_REF: "main"
 
 jobs:
   deploy:
