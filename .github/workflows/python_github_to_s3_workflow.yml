@@ -32,13 +32,10 @@ jobs:
         role-to-assume: arn:aws:iam::160142254471:role/github_s3_role
         aws-region: us-east-2
 
-    - name: Creating zip output directory
-      run: | 
-       mkdir -p ./python_reports/zip_output_files
-      
     - name: Creating zip file
       run: |
-       zip ./python_reports/zip_output_files/daily_metrics_report.zip ./python_reports/daily_metrics_report/scripts/
+       cd /python_reports/
+       zip daily_metrics_report.zip ./daily_metrics_report/scripts
       
     - name: Uploading to S3  
       run: |
