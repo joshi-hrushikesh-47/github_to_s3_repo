@@ -38,8 +38,8 @@ jobs:
        mkdir -p zip_output_files       
        cd zip_output_files
        mkdir -p daily_metrics_report
-       cd /root/python_reports/zip_output_files/       
-       zip daily_metrics_report.zip /root/python_reports/daily_metrics_report/scripts
+       cd daily_metrics_report       
+       zip daily_metrics_report.zip ./python_reports/daily_metrics_report/scripts
       
     - name: Uploading to S3  
       run: |
