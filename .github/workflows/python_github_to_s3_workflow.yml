@@ -34,8 +34,13 @@ jobs:
 
     - name: Creating zip file
       run: |
-       cd /python_reports/
-       zip daily_metrics_report.zip ./daily_metrics_report/scripts
+       mkdir python_reports
+       cd python_reports
+       mkdir zip_output_files       
+       cd zip_output_files
+       mkdir daily_metrics_report
+       cd ./python_reports/zip_output_files/       
+       zip daily_metrics_report.zip ./python_reports/daily_metrics_report/scripts
       
     - name: Uploading to S3  
       run: |
