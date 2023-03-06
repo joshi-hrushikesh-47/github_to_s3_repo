@@ -36,7 +36,7 @@ jobs:
        pwd
        mkdir -p /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports
        mkdir -p /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files
-       cd /home/runner/work/github_to_s3_repo/github_to_s3_repo/daily_metrics_report
+       cd /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/daily_metrics_report
        zip /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files/daily_metrics_report.zip /scripts
       
     - name: Uploading to S3  
