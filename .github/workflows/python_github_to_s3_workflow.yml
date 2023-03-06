@@ -38,8 +38,8 @@ jobs:
        mkdir -p /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files
        cd /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/daily_metrics_report
        pwd
-       zip /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files/daily_metrics_report.zip /scripts
+       zip /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files/daily_metrics_report.zip /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/daily_metrics_report/scripts
       
     - name: Uploading to S3  
       run: |
-        aws s3 sync ./python_reports/zip_output_files/ s3://my-github-bucket/python_reports/zip_output_files/
+        aws s3 sync /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files s3://my-github-bucket/python_reports/zip_output_files/
