@@ -38,8 +38,8 @@ jobs:
       
     - name: Creating zip file
       run: |
-       zip -r ./python_reports/zip_output_files/daily_metrics_report.zip ./python_reports/daily_metrics_report/scripts
+       zip ./python_reports/zip_output_files/daily_metrics_report.zip ./python_reports/daily_metrics_report/scripts/
       
     - name: Uploading to S3  
       run: |
-        aws s3 sync . s3://my-github-bucket
+        aws s3 sync ./python_reports/zip_output_files/ s3://my-github-bucket/python_reports/zip_output_files/
