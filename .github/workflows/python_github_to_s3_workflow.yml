@@ -33,11 +33,11 @@ jobs:
 
     - name: Creating zip file
       run: |
-       mkdir python_reports
+       mkdir -p python_reports
        cd python_reports
-       mkdir zip_output_files       
+       mkdir -p zip_output_files       
        cd zip_output_files
-       mkdir daily_metrics_report
+       mkdir -p daily_metrics_report
        cd ./python_reports/zip_output_files/       
        zip daily_metrics_report.zip ./python_reports/daily_metrics_report/scripts
       
