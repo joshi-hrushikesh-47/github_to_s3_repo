@@ -34,11 +34,11 @@ jobs:
     - name: Creating zip file
       run: |
        pwd
-       mkdir -p python_reports
-       mkdir -p python_reports/zip_output_files
-       mkdir -p python_reports/zip_output_files/daily_metrics_report
-       cd python_reports/zip_output_files/daily_metrics_report       
-       zip daily_metrics_report.zip ./daily_metrics_report/scripts
+       mkdir -p /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports
+       mkdir -p /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files
+       mkdir -p /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files/daily_metrics_report
+       cd /home/runner/work/github_to_s3_repo/github_to_s3_repo/python_reports/zip_output_files/daily_metrics_report       
+       zip daily_metrics_report.zip /home/runner/work/github_to_s3_repo/github_to_s3_repo/daily_metrics_report/scripts
       
     - name: Uploading to S3  
       run: |
